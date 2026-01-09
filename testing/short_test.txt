@@ -1,5 +1,3 @@
-CIPHERTEXT
-Lowj bk h gyhja hvql ac uxuymgm
+CIPHERTEXT:Lowj bk h gyhja hvql ac uxuymgm
 
-KEY
-short
+KEY:short
