@@ -10,16 +10,12 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
 
 #define MAX_SIZE 10000
 #define ALPHABET_SIZE 26
 #define Pc_RAND 0.0385
 #define Pc_ENG 0.0658
-
-//  read text into buffer
-//  count total chars
-//  calculate letter frequencies
-//  calculate key length
 
 double findKeyLength(char *ciphertext);
 void getFrequencies(char *ciphertext, int frequencies[], int *total_letters);
@@ -63,11 +59,8 @@ void getFrequencies(char *ciphertext, int frequencies[], int *total_letters) {
     while (ciphertext[i] != '\0') {
         char c = ciphertext[i];
         
-        if ('a' <= c && c <= 'z') {
-            frequencies[c - 'a']++;
-            (*total_letters)++;
-        } else if ('A' <= c && c <= 'Z') {
-            frequencies[c - 'A']++;
+        if (isalpha(c)) {
+            frequencies[tolower(c) - 'a']++;
             (*total_letters)++;
         }
 
