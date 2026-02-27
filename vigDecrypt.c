@@ -24,8 +24,8 @@ int main(int argc, char *argv[]) {
     char *ciphertext = malloc(MAX_SIZE * sizeof(char));
     fgets(ciphertext, MAX_SIZE, stdin);
 
-    double keylength = findKeyLength(ciphertext);
-    printf("keylength: %lf\n", keylength);
+    int keylength = findKeyLength(ciphertext);
+    printf("keylength: %d\n", keylength);
 
     return 0;
 }
@@ -46,6 +46,7 @@ double findKeyLength(char *ciphertext) {
     }
     indexCoincidence -= total_letters;
     indexCoincidence = indexCoincidence / ((total_letters * total_letters) - total_letters);
+
 
     // L ~= 0.0273n / ((n-1)I_c - 0.0385n + 0.0658)
     double keylength = (Pc_ENG - Pc_RAND) * total_letters;
